@@ -19,6 +19,8 @@ app.use(express.static("public"))
 
 mongoose.connect("mongodb://localhost/bearcavedb")
 
+mongoose.connect(process.env.MONGODDB_URI || "mongodb://justin:nikki72181@ds131973.mlab.com:31973/bearcavedb")
+
 app.use(routes)
 
 
