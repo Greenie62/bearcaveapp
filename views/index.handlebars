@@ -1,0 +1,208 @@
+<header id='header-title' class='bg-primary text-center p-2 mb-2'>
+     <a href="/" class='float-left text-dark'>Log Out</a>
+   <h1> Da {{username}} Cave!! </h1>
+</header>
+<div class='row'>
+ 
+    <div class='col-md-12'>
+    <button class='btn btn-success'>Update Resume</button> 
+    <button class='btn btn-info'>Add Item for Sale</button>
+    <button class='btn btn-danger'>Spend Some Bear Coins</button>
+    <button class='btn btn-warning'>Read Da News</button>
+    <button class='btn btn-primary'>Check Mail</button>
+    <button class='btn btn-secondary'>Send a Message</button>
+    <button class='btn bg-light text-dark'>Who I am again?</button>
+   
+    </div>
+
+
+</div>
+
+<!-- UPDATE RESUME DIV MODAL -->
+
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-3'></div>
+        <div class='col-md-6'>
+            <div class='card card-body' id='updateinfomodal'>
+                <h4>User Info: <span class='badge badge-danger float-right mr-2 closeit'>&times;</span> </h4>
+                <form action="/updateinfo" method="POST">
+                <label>Name:</label>
+                <input type='text' class='form-control' name='name'>
+                  <label>Last Name:</label>
+                <input type='text' class='form-control' name='lastname'>
+                  <label>Age:</label>
+                <input type='text' class='form-control' name='age'>
+                  <label>Email:</label>
+                <input type='text' class='form-control' name='email'>
+                <label>Balance:</label>
+                <input type='text' class='form-control' name='balance'>
+                  <label>Address:</label>
+                <input type='text' class='form-control' name='address'>
+                  <label>Occupation:</label>
+                <input type='text' class='form-control' name='occupation'>
+                <label>Married:</label>
+                <select id='marriedornot'>
+                    <option value="married">Married</option>
+                    <option value="single">Single</option>
+                </select>
+                 <label>Kids:</label>
+                  <select id='kidsornot'>
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
+                How Many:
+                  <select id='howmanykids'>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="Fuck off">Fuck off</option>
+                </select>
+                <button class='btn btn-success'>Enter</button>
+                <button class='btn btn-danger deletemember'>Delete Me!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Update Resume Modal Ends -->
+
+<!-- WhoAmI Modal -->
+
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-3'></div>
+        <div class='col-md-6'>
+            <div id='personalinfomodal' class='card card-body'>
+               <h4 class='text-center'> {{username}}'s Bare Essentials <span class='badge badge-danger float-right mr-2 closeit'>&times;</span> </h4>
+               <h5>Name:<span id='name'></span><span id='lastname'></span></h5>
+               <h5>Age:<span id='age'></span></h5>
+               <h5>Email:<span id='email'></span></h5>
+               <h5>Address: <span id= 'address'></span></h5>
+               <h5>Occupation:<span id='occupation'></span></h5>
+               <h5>Balance:$<span id='balance'></span></h5>
+               <h5>Items Sold: <span id='itemssold'></span></h5>
+                <h5>Items Bought: <span id='itemsbought'></span></h5>
+
+            </div>
+        </div>
+        <div class='col-md-3'></div>
+    </div>
+</div>
+<!-- WhoamIModal ends -->
+
+<!-- NYTimesModal begins -->
+<div class='container' id='nytimesmodal'>
+     <span class='badge badge-danger float-right ml-3 closeit'>&times;</span>
+    <form style='width:33%; margin-right:66%'>
+        <label>New York Times Article Search </label>
+        <input type='text' class='form-control' id='nytimestopic'> <span id='waitingwindow'></span>
+        <button class='btn btn-success searchtopic'>Search</button>
+    </form>
+    <ul id='articlelist' class='list-group'>
+
+    </ul>
+
+</div>
+<!--NYTimes Ends -->
+
+<!-- SellAnItem Modal -->
+
+<div id='sellitemmodal' class='card card-body text-center'>
+    <h4>Sell an Item</h4> <span class='badge badge-danger float-right ml-3 closeit'>&times;</span>
+    <form>
+    <label>Product Name:</label>
+    <input type='text' class='form-control' name='itemname'>
+    <label>Price:</label>
+    <input type='text' class='form-control' name='price'>
+    <label>Quantity:</label>
+    <input type='text' class='form-control' name='quantity'>
+    <label>Image(optional):</label>
+    <input type='text' class='form-control' name='image'>
+    <label>Description:</label>
+    <input type='text' class='form-control' name='description'>
+    <button class='btn btn-secondary postitem'>Post</button>
+    </form>
+</div> 
+
+<!-- SellAnItemModal Ends -->
+
+<!-- BuyItemsModal -->
+
+<div id='buyitemmodal' class='card card-body'>
+    <div><h4 style='text-align:center'>Buy Something!</h4> <span class='badge badge-danger float-right ml-3 closeit'>&times;</span></div>
+  <ul id='itemlist' class='list-group'>
+
+  </ul>
+</div> 
+
+<!--BuyItemModal ends -->
+
+<!--ItemInfoModal begins -->
+<div class='row'>
+    <div class='col-md-3'></div>
+    <div class='col-md-6'>
+        <div class='well' id='iteminfomodal'>
+            <span class='badge badge-danger float-right mr-2 mt-2 closeit'>&times;</span>
+            <h3 style='text-align:center;'>Item Info:</h3>
+            <h4>Name:<span id='iteminfoname'></span></h4>
+              <h4>Quantity:<span id='iteminfoquantity'></span></h4>
+                <h4>Price:$<span id='iteminfoprice'></span></h4>
+                  <h4>Description:<span id='iteminfodescription'></span></h4>
+                <button id='buyItem' class='btn btn-success'>Buy</button>
+        </div>
+    </div>
+    <div class='col-md-3'></div>
+</div>
+<!--ItemInfoModal ends -->
+
+<!--SendMessageModal begins -->
+
+<div id='messageModal' class='container mt-2 p-4'> <span class='badge badge-danger float-right mr-2 mt-2 closeit'>&times;</span>
+            <h3 class='text-center'>Email a Member</h3>        
+    <div class='row'>
+
+        <div class='col-md-6'>
+            <h3 style='text-center'>Select a Member</h3>
+            <form action="/selectmember" method="POST">
+            <input list='namelist'
+                    name="name"
+                    key="namelist">
+                    <button class='btn btn-success selectmember'>Select</button>
+                    </form>
+
+
+                    <datalist id='namelist'>
+
+                    </datalist>
+        </div>
+        <div class='col-md-6'>
+            EMAIL BOX
+           <div class='card card-body emailbox'>
+                <h3>To: <span id='recipient'></span></h3>
+                <form action="/postmessage" method="POST">
+                <label>Subject:</label>
+                <input type='text' id='subject_header' class='form-control' name="topic">
+                <hr>
+                <textarea class='form-control' id='email_body' name="body"></textarea>
+                <button class='btn btn-primary send_button'>Send</button>
+                </form>
+            </div> 
+        </div>   
+    </div>  
+</div>  
+
+<div class='container' id='yourmessagesmodal'>
+    <div class='card card-body'>
+        <h3 class='text-center'>Your Messages!  <span class='badge badge-danger float-right mr-2 mt-2 closeit'>&times;</span></h3>
+       
+        <ul id='messagelist' class='list-group'>
+
+        </ul>
+    </div>
+</div>
+
+<footer id='footer-title' class='bg-primary text-center mt-2'>
+    Footer &copy;
+</footer>

@@ -1,0 +1,11 @@
+img{height:100px;}
+
+
+
+.pawcircle{background-color:tan;
+           border-radius:15px;
+           margin-right:5px;}
+
+.bearbackground{
+    background-image:url("../assets/bearbackground.jpg")
+}
