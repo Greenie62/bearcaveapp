@@ -43,7 +43,7 @@ deleteMemberBtn.addEventListener("click",function(e){
     var currentUser=sessionStorage.getItem("currentUser")
     console.log(currentUser)
 
-    var xhr=new XMLHttpRequestUpload();
+    var xhr=new XMLHttpRequest();
 
     xhr.open("DELETE",`/deletemember/${currentUser}`,true)
 
@@ -357,6 +357,8 @@ them into the datalist which puts them into the input box) */
 var namelist=document.getElementById("namelist")
 
 sendMessageBtn.addEventListener("click",function(e){
+    //desperate attempt to clean out inputbox history values??
+    namelist.innerHTML=""
     e.preventDefault()
     console.log(e.target.className)
     messageModal.style.backgroundColor='lemonchiffon'
@@ -403,7 +405,7 @@ sendMessageBtn.addEventListener("click",function(e){
 
             var topic=document.querySelector("input[name='topic']").value;
             var body=document.querySelector("textarea").value;
-            var recipient=document.querySelector("#recipient").value;
+         
 
             var messageObject=Object.assign(
                 {},

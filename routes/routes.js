@@ -82,6 +82,7 @@ router.route('/deletemessage/:id')
       .delete(maincontroller.deletemessage)
 
 router.delete("/deletemember/:member",(req,res)=>{
+    console.log("pinged in delete pathway!")
     db.User.deleteOne({"username":req.params.member})
     .then(()=>console.log("Member has been deleted!"))
 })
